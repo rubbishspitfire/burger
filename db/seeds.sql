@@ -1,10 +1,7 @@
-USE burgers_db;
+INSERT INTO burgers (burger_name) VALUES ('Cheese burger');
 
-INSERT INTO burgers (id, burger_name, devoured)
-VALUES
-(null, "Cheese Burger", FALSE),
-(null, "Bacon Burger", FALSE),
-(null, "Quarter Pounder Burger", FALSE),
-(null, "Fire Burger", FALSE),
-(null, "Triple Decker Burger", FALSE),
-(null, "Impossible Burger", FALSE);
+INSERT INTO burgers (burger_name) VALUES ('Big Mac burger');
+
+INSERT INTO burgers (burger_name) VALUES ('Impoosible burger');
+
+INSERT INTO burgers (burger_name) VALUES ('Bacon cheese burger');

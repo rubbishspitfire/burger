@@ -1,24 +1,23 @@
 var orm = require("../config/orm.js");
 
+// Pass in query parameters as required by our ORM and also a callback to receive data
 var burger = {
-    all: function(cb) {
-        orm.all("burgers", function(res) {
+    selectAll: function (cb) {
+        orm.selectAll("burgers", function (res) {
             cb(res);
         });
     },
-    create: function(name, cb) {
-        onm.create("burgers", [
-            "burgers_name", "devoured"
-        ], [
-            name, false
-        ], cb);
+    insertOne: function (burgerName, cb) {
+        onm.insertOne("burgers", "burger_name", burgerName, function (res) {
+             cb(res);
+        });     
     },
-    update: function(id, cb) {
-        var condition = "id=" + id;
-        orm.update("burgers", {
-            devoured: true
-        }, condition, cb);
+    updateOne: function (burgerId, cb) {
+        orm.updateOne("burgers", "devoured", 1, burgerId, function (res) {
+            cb(res);
+        });
     }
 };
+
 
 module.exports = burger;
