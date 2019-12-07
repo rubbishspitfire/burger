@@ -1,5 +1,5 @@
-CREATE database yan1frdtykju1xwt;
-USE yan1frdtykju1xwt;
+CREATE database burgers_db;
+USE burgers_db;
 
 CREATE TABLE burgers 
 (
