@@ -1,12 +1,12 @@
   var mysql = require("mysql");
-  var connection;
+  
 
-  connection = mysql.createConnection({
-    host: process.env.DB_HOST || "192.168.99.101",
-    port: process.env.DB_PORT || 3306,
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || "docker",
-    database: process.env.DB_DATABASE || 'burgers_db'
+  var connection = mysql.createConnection({
+    host: "192.168.99.101",
+    port: 3306,
+    user: "root",
+    password: "docker",
+    database: "burgers_db"
 }); 
 
    connection.connect(function(err) {
