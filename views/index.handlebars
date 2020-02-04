@@ -1,37 +1,43 @@
-<header>
-    <h1>Eat-Da-Burger</h1>
-</header><!-- /header -->
-
-<div class="wrapper">
-    <div id="create-burger">
-        <form action="/" method="POST">
-              <input id="burger-name" type="text" name="burger_name" placeholder="Place Order">
-              <button id="submit-btn" type="submit">Submit Order</button>
-        </form>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center" class="task">
+            <h1>Devour These Burgers!</h1>
+        </div>
+              <div class="col-xs-6 text-center" class="task">
+                  <div class="row">
+                      {{#each burger_data}}
+                      {{#unless this.devoured}}
+                      <div class="col-xs-9 text-center">
+                          <pre>{{this.id}}. {{this.burger_name}}
+                          </pre>
+                      </div>
+                  </div>
+                  <div class="col-xs-3 text-center">
+                      <form class="devour-form button-size">
+                          <input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
+                          <button type="submit" class="btn btn-default">Devour!</button>
+                      </form>
+                  </div>
+                  {{/unless}}
+                  {{/each}}
+              </div> 
+        </div>
+        <div class="col-xs-6 text-center" class="task">
+            {{#each burger_data}}
+                {{#if this.devoured}}
+                    <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+                  {{/if}} 
+               {{/each}}    
+        </div>
     </div>
+</div>
 
-    <section id="burgers-container">
-        <div id="burger-available">
-            <h2>Burgers Available</h2>
-            {{#each burgers}}
-                    {{#unless this.DEVOURED}}
-                       <div class="burger">
-                           <form class="devour-burger-form" action=""/{{id}}?_method=PUT" method="POST">
-                        <button class="eat-btn">Devour It</button>
-                           </form>
-                                        {{burger_name}} <span>#{{id}}</span>
-                           </div>
-                       {{/unless}}
-                    {{/each}}
-                </div>
-                <div id="burgers-devoured">
-                    <h2>Burgers Devoured</h2>
-                    {{#each burgers}}
-                            {{#if this.devoured}}
-                            <div class="burger">{{burger_name}} <span>#{{id}}</span></div>
-                            {{/if}}
-                        {{/each}}
-                </div>
-                    
-        </section>         
- </div>       
+       <div class="container">
+           <div class="row">
+               <div class="col-xs-12 text-center enter_section">
+                   <form action="/burgers/create" method="POST">
+                   </form>
+                   <p>Enter the burger you would like to eat then click the "Submit" button.</p>
+               </div>
+           </div>
+       </div>                   
